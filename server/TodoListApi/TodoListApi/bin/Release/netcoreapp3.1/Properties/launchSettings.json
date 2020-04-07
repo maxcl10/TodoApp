@@ -15,7 +15,6 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
       "launchUrl": "api/todos",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -38,6 +37,5 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
-    
   }
 }

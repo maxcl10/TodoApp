@@ -35,3 +35,5 @@ List /todos => TodoListComponent
 Create /todos/create => TodoCreateComponent
 Read /todos/:id => TodoDetailsComponent
 Update /todos/:id/edit => TodoEditComponent (0 if new)
+
+dotnet run --project C:\Users\mmax\Documents\GitHub\TodoApp\server\TodoListApi\todolistapi

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mmax\\source\\repos\\TodoListApi\\TodoListApi\\TodoListApi.csproj": {}
+    "C:\\Users\\mmax\\Documents\\GitHub\\TodoApp\\server\\TodoListApi\\todolistapi\\TodoListApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mmax\\source\\repos\\TodoListApi\\TodoListApi\\TodoListApi.csproj": {
+    "C:\\Users\\mmax\\Documents\\GitHub\\TodoApp\\server\\TodoListApi\\todolistapi\\TodoListApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mmax\\source\\repos\\TodoListApi\\TodoListApi\\TodoListApi.csproj",
+        "projectUniqueName": "C:\\Users\\mmax\\Documents\\GitHub\\TodoApp\\server\\TodoListApi\\todolistapi\\TodoListApi.csproj",
         "projectName": "TodoListApi",
-        "projectPath": "C:\\Users\\mmax\\source\\repos\\TodoListApi\\TodoListApi\\TodoListApi.csproj",
+        "projectPath": "C:\\Users\\mmax\\Documents\\GitHub\\TodoApp\\server\\TodoListApi\\todolistapi\\TodoListApi.csproj",
         "packagesPath": "C:\\Users\\mmax\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mmax\\source\\repos\\TodoListApi\\TodoListApi\\obj\\",
+        "outputPath": "C:\\Users\\mmax\\Documents\\GitHub\\TodoApp\\server\\TodoListApi\\todolistapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -5,12 +5,12 @@ import { Observer, Observable } from 'rxjs';
 import { Category } from './models/category.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoService {
   constructor(private httpClient: HttpClient) {}
 
-  private baseUrl = 'https://localhost:44324/api/';
+  private baseUrl = 'https://localhost:5001/api/';
 
   addTodo(title: string, categoryId: number): Observable<Todo> {
     const url = this.baseUrl + 'todos';
