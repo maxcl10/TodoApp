@@ -1,0 +1,70 @@
+<mat-card
+  [class.done]="todo.doneDate"
+  (mouseover)="isHover = true"
+  (mouseout)="isHover = false"
+>
+  <mat-card-title
+    ><mat-checkbox
+      [checked]="todo.doneDate"
+      [disabled]="todo.doneDate"
+      (change)="onCheck(todo)"
+    >
+    </mat-checkbox>
+
+    <span [class.text-done]="todo.doneDate" class="mr-2">
+      {{ todo.title }}</span
+    >
+    <a
+      [routerLink]="['./category', todo.categoryShortName]"
+      *ngIf="displayCategory && !todo.doneDate"
+      class="badge badge-primary"
+    >
+      {{ todo.categoryShortName }}
+    </a>
+    <button
+      mat-icon-button
+      [color]="todo.isUrgent ? 'primary' : ''"
+      (click)="onStarClick(todo)"
+      [hidden]="!isHover && !todo.isUrgent"
+    >
+      <mat-icon>grade</mat-icon>
+    </button>
+  </mat-card-title>
+  <mat-card-subtitle>
+    <!-- <span *ngIf="!todo.doneDate"> {{ todo.categoryName }}</span> -->
+
+    <span *ngIf="todo.doneDate">
+      (Done on {{ todo.doneDate | date: 'EEE dd LLL yyyy, HH:mm' }})</span
+    ></mat-card-subtitle
+  >
+  <span *ngIf="!todo.doneDate" class="text-secondary"> {{ todo.note }}</span>
+  <div style="position: absolute; right: 10px; top: 20px;">
+    <a
+      mat-mini-fab
+      [routerLink]="['/todos', todo.todoId]"
+      color="primary"
+      [hidden]="!isHover"
+    >
+      <mat-icon>search</mat-icon></a
+    >
+    &nbsp;
+    <a
+      mat-mini-fab
+      [routerLink]="['/todos', todo.todoId, 'edit']"
+      color="primary"
+      [hidden]="!isHover"
+    >
+      <mat-icon>edit</mat-icon></a
+    >
+    &nbsp;
+    <button
+      mat-mini-fab
+      (click)="onDelete(todo)"
+      [hidden]="!isHover"
+      *ngIf="!todo.doneDate && !todo.deletedDate"
+      color="primary"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</mat-card>

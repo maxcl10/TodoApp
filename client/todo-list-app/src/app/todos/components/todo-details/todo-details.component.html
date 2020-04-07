@@ -1,0 +1,16 @@
+<div *ngIf="todo" class="container-fluid">
+  <h4>{{ todo.title }}</h4>
+  <p class="line-breaker">
+    {{ todo.note }}
+  </p>
+  <div class="row">
+    <div class="col-md-4">
+      <dl class="row">
+        <dt class="col-sm-3">Created on</dt>
+        <dd class="col-sm-9">{{ todo.creationDate | date: 'dd.MM.yyyy' }}</dd>
+        <dt class="col-sm-3"></dt>
+        <dd class="col-sm-9"></dd>
+      </dl>
+    </div>
+  </div>
+</div>

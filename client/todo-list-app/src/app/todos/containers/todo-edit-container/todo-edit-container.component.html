@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <mat-card>
+    <mat-card-content>
+      <form
+        *ngIf="todoForm"
+        [formGroup]="todoForm"
+        (ngSubmit)="submitForm()"
+        novalidate
+        (keydown)="onKeyDown($event)"
+      >
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Title" formControlName="title" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="categoryId">
+            <mat-option
+              *ngFor="let category of categories"
+              [value]="category.categoryId"
+            >
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <textarea
+            matInput
+            placeholder="Note"
+            formControlName="note"
+            cdkTextareaAutosize
+          ></textarea>
+        </mat-form-field>
+
+        <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Category" formControlName="categoryId" />
+  </mat-form-field> -->
+
+        <a (click)="onBack()" mat-raised-button>Back</a>
+        &nbsp;
+        <a (click)="onSave()" mat-raised-button>Save</a>
+        &nbsp;
+        <button type="submit" mat-raised-button color="primary">
+          Save & close
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<!-- {{ todoForm?.value | json }} -->

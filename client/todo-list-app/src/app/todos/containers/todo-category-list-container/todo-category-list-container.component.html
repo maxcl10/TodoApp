@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <h3 *ngIf="todos && todos.length">
+    <span matBadge="{{ todos?.length }}" matBadgeOverlap="false">
+      {{ todos[0].categoryName }}</span
+    >
+  </h3>
+
+  <ng-container *ngFor="let todo of todos">
+    <app-todo-card-item-container
+      [todo]="todo"
+      (checked)="onChecked($event)"
+      (deleted)="onDeleted($event)"
+      (errorOccured)="onErrorOccured($event)"
+      [displayCategory]="false"
+    ></app-todo-card-item-container>
+  </ng-container>
+</div>

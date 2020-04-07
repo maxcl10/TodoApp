@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <mat-card>
+    <mat-card-content>
+      <app-todo-create (AddTodo)="onAddTodo($event)"></app-todo-create>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+  <div *ngIf="!loading && todos" class="mt-3">
+    <h3>{{ todos.length }} items</h3>
+    <div
+      cdkDropList
+      class="list"
+      (cdkDropListDropped)="onDrop($event)"
+      [cdkDropListData]="todos"
+    >
+      <div class="list-item" *ngFor="let todo of todos" cdkDrag>
+        <app-todo-card-item-container
+          [todo]="todo"
+          (checked)="onChecked($event)"
+          (deleted)="onDeleted($event)"
+          (errorOccured)="onErrorOccured($event)"
+          [displayCategory]="true"
+        ></app-todo-card-item-container>
+      </div>
+    </div>
+  </div>
+</div>
