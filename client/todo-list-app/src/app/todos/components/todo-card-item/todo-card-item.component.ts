@@ -1,10 +1,18 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Todo } from 'src/app/shared/models/todo.model';
 
 @Component({
   selector: 'app-todo-card-item',
   templateUrl: './todo-card-item.component.html',
   styleUrls: ['./todo-card-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoCardItemComponent implements OnInit {
   @Input()

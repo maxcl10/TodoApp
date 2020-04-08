@@ -37,3 +37,8 @@ Read /todos/:id => TodoDetailsComponent
 Update /todos/:id/edit => TodoEditComponent (0 if new)
 npm audit fix
 dotnet run --project C:\Users\mmax\Documents\GitHub\TodoApp\server\TodoListApi\todolistapi
+
+## Todo
+
+- fix invalid state when addind a todo and clear the form
+- get category details by calling the web api and rxjs

@@ -1,4 +1,10 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TodoService } from 'src/app/shared/todo.service';
 import { Category } from 'src/app/shared/models/category.model';
@@ -9,13 +15,14 @@ import { Observable } from 'rxjs';
 import {
   EventBusService,
   EmitEvent,
-  Events
+  Events,
 } from 'src/app/shared/event-bus.service';
 
 @Component({
   selector: 'app-todo-create',
   templateUrl: './todo-create.component.html',
-  styleUrls: ['./todo-create.component.scss']
+  styleUrls: ['./todo-create.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoCreateComponent implements OnInit {
   constructor(private service: TodoService) {}
@@ -25,7 +32,7 @@ export class TodoCreateComponent implements OnInit {
 
   todoAddForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
-    category: new FormControl('', [Validators.required])
+    category: new FormControl('', [Validators.required]),
   });
 
   categories: Category[];
@@ -33,17 +40,17 @@ export class TodoCreateComponent implements OnInit {
   filteredCategories: Observable<Category[]>;
 
   ngOnInit() {
-    this.service.getCategories().subscribe(arg => {
+    this.service.getCategories().subscribe((arg) => {
       this.categories = arg;
       this.filteredCategories = this.todoAddForm.valueChanges.pipe(
-        tap(val => console.log(`BEFORE MAP: ${JSON.stringify(val)}`)),
+        tap((val) => console.log(`BEFORE MAP: ${JSON.stringify(val)}`)),
         startWith(''),
-        map(value =>
+        map((value) =>
           value.category !== undefined && typeof value.category === 'string'
             ? value.category
             : value?.category?.name
         ),
-        map(name => (name ? this._filter(name) : this.categories.slice()))
+        map((name) => (name ? this._filter(name) : this.categories.slice()))
       );
     });
   }
@@ -53,10 +60,10 @@ export class TodoCreateComponent implements OnInit {
   }
 
   onAddTodo() {
-    const todo = new Todo(
-      this.todoAddForm.value.title,
-      this.todoAddForm.value.category.categoryId
-    );
+    const todo: Todo = {
+      title: this.todoAddForm.value.title,
+      categoryId: this.todoAddForm.value.category.categoryId,
+    };
 
     this.AddTodo.emit(todo);
     this.todoAddForm.reset();
@@ -67,7 +74,7 @@ export class TodoCreateComponent implements OnInit {
     const filterValue = name.toLowerCase();
 
     return this.categories.filter(
-      option => option.name.toLowerCase().indexOf(filterValue) === 0
+      (option) => option.name.toLowerCase().indexOf(filterValue) === 0
     );
   }
 }

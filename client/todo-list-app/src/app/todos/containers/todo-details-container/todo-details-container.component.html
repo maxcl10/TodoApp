@@ -1,1 +1,6 @@
-<app-todo-details [todo]="todo"></app-todo-details>
+<div class="container-fluid">
+  <mat-card>
+    <app-todo-details [todo]="todo"></app-todo-details>
+    <button (click)="onBack()" mat-raised-button>Back</button>
+  </mat-card>
+</div>

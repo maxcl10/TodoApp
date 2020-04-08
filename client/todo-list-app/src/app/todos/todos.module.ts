@@ -18,13 +18,12 @@ import { TodoDetailsContainerComponent } from './containers/todo-details-contain
     TodoEditContainerComponent,
     TodoCategoryListContainerComponent,
     TodoCardItemComponent,
-    TodoCardItemContainerComponent,
     TodoCreateComponent,
     TodoListContainerComponent,
     TodoDetailsComponent,
     TodoCardItemContainerComponent,
-    TodoDetailsContainerComponent
+    TodoDetailsContainerComponent,
   ],
-  imports: [CommonModule, TodosRoutingModule, SharedModule]
+  imports: [CommonModule, TodosRoutingModule, SharedModule],
 })
 export class TodosModule {}

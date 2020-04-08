@@ -12,9 +12,9 @@ export class TodoService {
 
   private baseUrl = 'https://localhost:5001/api/';
 
-  addTodo(title: string, categoryId: number): Observable<Todo> {
+  addTodo(todo: Todo): Observable<Todo> {
     const url = this.baseUrl + 'todos';
-    return this.httpClient.post<Todo>(url, new Todo(title, categoryId));
+    return this.httpClient.post<Todo>(url, todo);
   }
 
   saveTodo(todo: Todo): Observable<Todo> {

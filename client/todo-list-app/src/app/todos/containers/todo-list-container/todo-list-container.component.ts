@@ -4,20 +4,20 @@ import { Todo } from 'src/app/shared/models/todo.model';
 import {
   CdkDragDrop,
   moveItemInArray,
-  transferArrayItem
+  transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { SubSink } from 'subsink';
 import { MatSnackBar } from '@angular/material';
 import {
   EmitEvent,
   Events,
-  EventBusService
+  EventBusService,
 } from 'src/app/shared/event-bus.service';
 
 @Component({
   selector: 'app-todo-list-container',
   templateUrl: './todo-list-container.component.html',
-  styleUrls: ['./todo-list-container.component.scss']
+  styleUrls: ['./todo-list-container.component.scss'],
 })
 export class TodoListContainerComponent implements OnInit, OnDestroy {
   todos: Todo[];
@@ -34,11 +34,11 @@ export class TodoListContainerComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loading = true;
     this.subs.sink = this.service.getTodos(true, true).subscribe(
-      todos => {
+      (todos) => {
         this.loading = false;
         this.todos = todos;
       },
-      error => {
+      (error) => {
         this.errorMessage = error;
         this.loading = false;
       }
@@ -46,16 +46,16 @@ export class TodoListContainerComponent implements OnInit, OnDestroy {
   }
 
   onAddTodo(todo: Todo) {
-    this.service.addTodo(todo.title, todo.categoryId).subscribe(
-      res => {
+    this.service.addTodo(todo).subscribe(
+      (res) => {
         this.errorMessage = '';
         this.todos.push(res);
         this.snackBar.open('Item ´' + todo.title + '` added', null, {
-          duration: 2000
+          duration: 2000,
         });
         this.eventBusService.emit(new EmitEvent(Events.TodoUpdated, res));
       },
-      error => {
+      (error) => {
         this.errorMessage = error;
       }
     );
@@ -68,7 +68,7 @@ export class TodoListContainerComponent implements OnInit, OnDestroy {
       for (let index = 0; index < this.todos.length; index++) {
         const element = this.todos[index];
         element.prioOrder = index;
-        this.subs.sink = this.service.saveTodo(element).subscribe(res => {});
+        this.subs.sink = this.service.saveTodo(element).subscribe((res) => {});
       }
     } else {
       transferArrayItem(
@@ -84,7 +84,7 @@ export class TodoListContainerComponent implements OnInit, OnDestroy {
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
     this.snackBar.open('Item ´' + todo.title + '` removed', null, {
-      duration: 2000
+      duration: 2000,
     });
   }
 
@@ -92,14 +92,14 @@ export class TodoListContainerComponent implements OnInit, OnDestroy {
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
     this.snackBar.open('Item ´' + todo.title + '` deleted', null, {
-      duration: 2000
+      duration: 2000,
     });
   }
 
   onErrorOccured(errorMessage: string) {
     this.errorMessage = errorMessage;
     this.snackBar.open(errorMessage, 'Error', {
-      duration: 2000
+      duration: 2000,
     });
   }
 
