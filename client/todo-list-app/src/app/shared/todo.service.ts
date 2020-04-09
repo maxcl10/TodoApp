@@ -43,7 +43,6 @@ export class TodoService {
         mergeMap((todo) => {
           return this.getCategory(todo.categoryId).pipe(
             map((cat) => {
-              console.log('cat ' + JSON.stringify(cat));
               todo.category = cat;
               return todo;
             })

@@ -36,7 +36,7 @@ export class TodoListContainerComponent implements OnInit, OnDestroy {
     this.subs.sink = this.service.getTodos(true, true).subscribe(
       (todos) => {
         this.loading = false;
-        this.todos = todos;
+        this.todos = todos.sort((a, b) => (a.prioOrder > b.prioOrder ? 1 : -1));
       },
       (error) => {
         this.errorMessage = error;
