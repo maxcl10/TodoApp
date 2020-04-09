@@ -15,11 +15,11 @@
       {{ todo.title }}</span
     >
     <a
-      [routerLink]="['./category', todo.categoryShortName]"
+      [routerLink]="['./category', todo.category.categoryId]"
       *ngIf="displayCategory && !todo.doneDate"
       class="badge badge-primary"
     >
-      {{ todo.categoryShortName }}
+      {{ todo.category.shortName }}
     </a>
     <button
       mat-icon-button

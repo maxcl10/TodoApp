@@ -1,0 +1,890 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>todo-list-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">todo-list-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>TodoCardItemComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/todos/components/todo-card-item/todo-card-item.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>TodoCardItem Component</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-todo-card-item</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./todo-card-item.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./todo-card-item.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isHover">isHover</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onCheck">onCheck</a>
+                            </li>
+                            <li>
+                                <a href="#onDelete">onDelete</a>
+                            </li>
+                            <li>
+                                <a href="#onStarClick">onStarClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#displayCategory">displayCategory</a>
+                            </li>
+                            <li>
+                                <a href="#todo">todo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#check">check</a>
+                            </li>
+                            <li>
+                                <a href="#delete">delete</a>
+                            </li>
+                            <li>
+                                <a href="#starClicked">starClicked</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayCategory"></a>
+                        <b>displayCategory</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="todo"></a>
+                        <b>todo</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Todo.html" target="_self" >Todo</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:22</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="check"></a>
+                        <b>check</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="delete"></a>
+                        <b>delete</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:31</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="starClicked"></a>
+                        <b>starClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:34</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCheck"></a>
+                    <span class="name">
+                        <b>
+                            onCheck
+                        </b>
+                        <a href="#onCheck"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCheck(todo: <a href="../interfaces/Todo.html">Todo</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>todo</td>
+                                    <td>
+                                                <code><a href="../interfaces/Todo.html" target="_self" >Todo</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDelete"></a>
+                    <span class="name">
+                        <b>
+                            onDelete
+                        </b>
+                        <a href="#onDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDelete(todo: <a href="../interfaces/Todo.html">Todo</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>todo</td>
+                                    <td>
+                                                <code><a href="../interfaces/Todo.html" target="_self" >Todo</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onStarClick"></a>
+                    <span class="name">
+                        <b>
+                            onStarClick
+                        </b>
+                        <a href="#onStarClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onStarClick(todo: <a href="../interfaces/Todo.html">Todo</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>todo</td>
+                                    <td>
+                                                <code><a href="../interfaces/Todo.html" target="_self" >Todo</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isHover"></a>
+                        <span class="name">
+                            <b>
+                            isHover</b>
+                            <a href="#isHover"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/todos/components/todo-card-item/todo-card-item.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from &#x27;@angular/core&#x27;;
+import { Todo } from &#x27;src/app/shared/models/todo.model&#x27;;
+
+/**
+ * TodoCardItem Component
+ */
+@Component({
+  selector: &#x27;app-todo-card-item&#x27;,
+  templateUrl: &#x27;./todo-card-item.component.html&#x27;,
+  styleUrls: [&#x27;./todo-card-item.component.scss&#x27;],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class TodoCardItemComponent implements OnInit {
+  @Input()
+  todo: Todo;
+
+  @Input()
+  displayCategory: false;
+
+  @Output()
+  check &#x3D; new EventEmitter&lt;Todo&gt;();
+
+  @Output()
+  delete &#x3D; new EventEmitter&lt;Todo&gt;();
+
+  @Output()
+  starClicked &#x3D; new EventEmitter&lt;Todo&gt;();
+
+  isHover &#x3D; false;
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  onCheck(todo: Todo) {
+    this.check.emit(todo);
+  }
+
+  onDelete(todo: Todo) {
+    this.delete.emit(todo);
+  }
+
+  onStarClick(todo: Todo) {
+    this.starClicked.emit(todo);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card
+  [class.done]&#x3D;&quot;todo.doneDate&quot;
+  (mouseover)&#x3D;&quot;isHover &#x3D; true&quot;
+  (mouseout)&#x3D;&quot;isHover &#x3D; false&quot;
+&gt;
+  &lt;mat-card-title
+    &gt;&lt;mat-checkbox
+      [checked]&#x3D;&quot;todo.doneDate&quot;
+      [disabled]&#x3D;&quot;todo.doneDate&quot;
+      (change)&#x3D;&quot;onCheck(todo)&quot;
+    &gt;
+    &lt;/mat-checkbox&gt;
+
+    &lt;span [class.text-done]&#x3D;&quot;todo.doneDate&quot; class&#x3D;&quot;mr-2&quot;&gt;
+      {{ todo.title }}&lt;/span
+    &gt;
+    &lt;a
+      [routerLink]&#x3D;&quot;[&#x27;./category&#x27;, todo.category.categoryId]&quot;
+      *ngIf&#x3D;&quot;displayCategory &amp;&amp; !todo.doneDate&quot;
+      class&#x3D;&quot;badge badge-primary&quot;
+    &gt;
+      {{ todo.category.shortName }}
+    &lt;/a&gt;
+    &lt;button
+      mat-icon-button
+      [color]&#x3D;&quot;todo.isUrgent ? &#x27;primary&#x27; : &#x27;&#x27;&quot;
+      (click)&#x3D;&quot;onStarClick(todo)&quot;
+      [hidden]&#x3D;&quot;!isHover &amp;&amp; !todo.isUrgent&quot;
+    &gt;
+      &lt;mat-icon&gt;grade&lt;/mat-icon&gt;
+    &lt;/button&gt;
+  &lt;/mat-card-title&gt;
+  &lt;mat-card-subtitle&gt;
+    &lt;!-- &lt;span *ngIf&#x3D;&quot;!todo.doneDate&quot;&gt; {{ todo.categoryName }}&lt;/span&gt; --&gt;
+
+    &lt;span *ngIf&#x3D;&quot;todo.doneDate&quot;&gt;
+      (Done on {{ todo.doneDate | date: &#x27;EEE dd LLL yyyy, HH:mm&#x27; }})&lt;/span
+    &gt;&lt;/mat-card-subtitle
+  &gt;
+  &lt;span *ngIf&#x3D;&quot;!todo.doneDate&quot; class&#x3D;&quot;text-secondary&quot;&gt; {{ todo.note }}&lt;/span&gt;
+  &lt;div style&#x3D;&quot;position: absolute; right: 10px; top: 20px;&quot;&gt;
+    &lt;a
+      mat-mini-fab
+      [routerLink]&#x3D;&quot;[&#x27;/todos&#x27;, todo.todoId]&quot;
+      color&#x3D;&quot;primary&quot;
+      [hidden]&#x3D;&quot;!isHover&quot;
+    &gt;
+      &lt;mat-icon&gt;search&lt;/mat-icon&gt;&lt;/a
+    &gt;
+    &amp;nbsp;
+    &lt;a
+      mat-mini-fab
+      [routerLink]&#x3D;&quot;[&#x27;/todos&#x27;, todo.todoId, &#x27;edit&#x27;]&quot;
+      color&#x3D;&quot;primary&quot;
+      [hidden]&#x3D;&quot;!isHover&quot;
+    &gt;
+      &lt;mat-icon&gt;edit&lt;/mat-icon&gt;&lt;/a
+    &gt;
+    &amp;nbsp;
+    &lt;button
+      mat-mini-fab
+      (click)&#x3D;&quot;onDelete(todo)&quot;
+      [hidden]&#x3D;&quot;!isHover&quot;
+      *ngIf&#x3D;&quot;!todo.doneDate &amp;&amp; !todo.deletedDate&quot;
+      color&#x3D;&quot;primary&quot;
+    &gt;
+      &lt;mat-icon&gt;delete&lt;/mat-icon&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/mat-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./todo-card-item.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.mat-card-subtitle {
+  color: #3f51b5;
+}
+
+.text-secondary {
+  color: #a5a5a5;
+}
+
+.text-done {
+  text-decoration: line-through;
+}
+
+.done {
+  opacity: 0.6;
+}
+
+.mat-icon-button {
+  line-height: 30px;
+  height: 30px;
+  width: 30px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-card  [class.done]="todo.doneDate"  (mouseover)="isHover = true"  (mouseout)="isHover = false">  <mat-card-title    ><mat-checkbox      [checked]="todo.doneDate"      [disabled]="todo.doneDate"      (change)="onCheck(todo)"    >    </mat-checkbox>    <span [class.text-done]="todo.doneDate" class="mr-2">      {{ todo.title }}</span    >    <a      [routerLink]="[\'./category\', todo.category.categoryId]"      *ngIf="displayCategory && !todo.doneDate"      class="badge badge-primary"    >      {{ todo.category.shortName }}    </a>    <button      mat-icon-button      [color]="todo.isUrgent ? \'primary\' : \'\'"      (click)="onStarClick(todo)"      [hidden]="!isHover && !todo.isUrgent"    >      <mat-icon>grade</mat-icon>    </button>  </mat-card-title>  <mat-card-subtitle>    <!-- <span *ngIf="!todo.doneDate"> {{ todo.categoryName }}</span> -->    <span *ngIf="todo.doneDate">      (Done on {{ todo.doneDate | date: \'EEE dd LLL yyyy, HH:mm\' }})</span    ></mat-card-subtitle  >  <span *ngIf="!todo.doneDate" class="text-secondary"> {{ todo.note }}</span>  <div style="position: absolute; right: 10px; top: 20px;">    <a      mat-mini-fab      [routerLink]="[\'/todos\', todo.todoId]"      color="primary"      [hidden]="!isHover"    >      <mat-icon>search</mat-icon></a    >    &nbsp;    <a      mat-mini-fab      [routerLink]="[\'/todos\', todo.todoId, \'edit\']"      color="primary"      [hidden]="!isHover"    >      <mat-icon>edit</mat-icon></a    >    &nbsp;    <button      mat-mini-fab      (click)="onDelete(todo)"      [hidden]="!isHover"      *ngIf="!todo.doneDate && !todo.deletedDate"      color="primary"    >      <mat-icon>delete</mat-icon>    </button>  </div></mat-card></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'TodoCardItemComponent', 'selector': 'app-todo-card-item'},{'name': 'TodoCardItemContainerComponent', 'selector': 'app-todo-card-item-container'},{'name': 'TodoCategoryListContainerComponent', 'selector': 'app-category-todos-container'},{'name': 'TodoCreateComponent', 'selector': 'app-todo-create'},{'name': 'TodoDetailsComponent', 'selector': 'app-todo-details'},{'name': 'TodoDetailsContainerComponent', 'selector': 'app-todo-details-container'},{'name': 'TodoEditContainerComponent', 'selector': 'app-todo-edit-container'},{'name': 'TodoListContainerComponent', 'selector': 'app-todo-list-container'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TodoCardItemComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TodoCardItemComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

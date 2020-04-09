@@ -8,6 +8,9 @@ import {
 } from '@angular/core';
 import { Todo } from 'src/app/shared/models/todo.model';
 
+/**
+ * TodoCardItem Component
+ */
 @Component({
   selector: 'app-todo-card-item',
   templateUrl: './todo-card-item.component.html',

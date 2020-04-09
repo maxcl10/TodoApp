@@ -8,7 +8,7 @@ import { EventBusService } from 'src/app/shared/event-bus.service';
 @Component({
   selector: 'app-category-todos-container',
   templateUrl: './todo-category-list-container.component.html',
-  styleUrls: ['./todo-category-list-container.component.scss']
+  styleUrls: ['./todo-category-list-container.component.scss'],
 })
 export class TodoCategoryListContainerComponent implements OnInit {
   private subs = new SubSink();
@@ -18,12 +18,12 @@ export class TodoCategoryListContainerComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: TodoService) {}
 
   ngOnInit(): void {
-    this.subs.sink = this.route.params.subscribe(params => {
+    this.subs.sink = this.route.params.subscribe((params) => {
       const category = params.id; //
 
       this.subs.sink = this.service
         .getTodosByCategory(category, false, true)
-        .subscribe(res => {
+        .subscribe((res) => {
           this.todos = res;
         });
     });

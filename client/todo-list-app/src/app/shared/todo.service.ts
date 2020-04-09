@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './models/todo.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observer, Observable } from 'rxjs';
+import { Observer, Observable, from } from 'rxjs';
 import { Category } from './models/category.model';
+import { switchMap, mergeMap, toArray, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +34,28 @@ export class TodoService {
     const params = new HttpParams()
       .append('excludeDone', excludeDone ? 'true' : 'false')
       .append('excludeDeleted', excludeDeleted ? 'true' : 'false');
-    return this.httpClient.get<Todo[]>(url, { params });
+    return this.httpClient
+      .get<Todo[]>(url, { params })
+      .pipe(
+        switchMap((res) => {
+          return from(res);
+        }),
+        mergeMap((todo) => {
+          return this.getCategory(todo.categoryId).pipe(
+            map((cat) => {
+              console.log('cat ' + JSON.stringify(cat));
+              todo.category = cat;
+              return todo;
+            })
+          );
+        }),
+        toArray()
+      );
+  }
+
+  getCategory(categoryId: number): Observable<Category> {
+    const url = this.baseUrl + 'categories/' + categoryId;
+    return this.httpClient.get<Category>(url);
   }
 
   getTodosByCategory(
@@ -51,10 +73,19 @@ export class TodoService {
 
   getTodo(id: number): Observable<Todo> {
     const url = this.baseUrl + 'todos/' + id;
-    return this.httpClient.get<Todo>(url);
+    return this.httpClient.get<Todo>(url).pipe(
+      switchMap((todo) => {
+        return this.getCategory(todo.categoryId).pipe(
+          map((cat) => {
+            todo.category = cat;
+            return todo;
+          })
+        );
+      })
+    );
   }
 
-  getCategories(): Observable<Category[]> {
+  getCategories() {
     const url = this.baseUrl + 'categories';
     return this.httpClient.get<Category[]>(url);
   }

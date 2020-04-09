@@ -1,5 +1,6 @@
 <div *ngIf="todo">
   <h4>{{ todo.title }}</h4>
+  {{ todo.category?.name }}
   <p class="line-breaker">
     {{ todo.note }}
   </p>

@@ -21,8 +21,8 @@ namespace TodoListApi.Models
         [Required]
         public int CategoryId { get; set; }
 
-        public string CategoryName { get; set; }
-        public string CategoryShortName { get; set; }
+        // public string CategoryName { get; set; }
+        // public string CategoryShortName { get; set; }
         public DateTime? DeletedDate { get; set; }
         public DateTime? CreationDate { get; set; }
         public DateTime? DoneDate { get; set; }

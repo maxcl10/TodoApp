@@ -1,13 +1,14 @@
+import { Category } from './category.model';
+
 export interface Todo {
   todoId?: number;
   title: string;
   note?: string;
   dueDate?: Date;
   prioOrder?: number;
-  statusId?: number;
   categoryId: number;
-  categoryName?: string;
-  categoryShortName?: string;
+  category?: Category;
+  statusId?: number;
   statusName?: string;
   deletedDate?: Date;
   doneDate?: Date;
