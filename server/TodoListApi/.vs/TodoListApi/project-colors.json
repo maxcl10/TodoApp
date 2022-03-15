@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ca4ddcd4-df8a-4ccc-8936-781565805738": {
+      "ProjectGuid": "ca4ddcd4-df8a-4ccc-8936-781565805738",
+      "DisplayName": "TodoListApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
