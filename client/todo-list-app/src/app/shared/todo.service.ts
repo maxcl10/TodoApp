@@ -11,7 +11,8 @@ import { switchMap, mergeMap, toArray, map } from 'rxjs/operators';
 export class TodoService {
   constructor(private httpClient: HttpClient) {}
 
-  private baseUrl = 'https://localhost:5001/api/';
+  // private baseUrl = 'https://localhost:5001/api/';
+  private baseUrl = 'http://localhost/TodoListWebApi/api/';
 
   addTodo(todo: Todo): Observable<Todo> {
     const url = this.baseUrl + 'todos';
@@ -34,22 +35,20 @@ export class TodoService {
     const params = new HttpParams()
       .append('excludeDone', excludeDone ? 'true' : 'false')
       .append('excludeDeleted', excludeDeleted ? 'true' : 'false');
-    return this.httpClient
-      .get<Todo[]>(url, { params })
-      .pipe(
-        switchMap((res) => {
-          return from(res);
-        }),
-        mergeMap((todo) => {
-          return this.getCategory(todo.categoryId).pipe(
-            map((cat) => {
-              todo.category = cat;
-              return todo;
-            })
-          );
-        }),
-        toArray()
-      );
+    return this.httpClient.get<Todo[]>(url, { params }).pipe(
+      switchMap((res) => {
+        return from(res);
+      }),
+      mergeMap((todo) => {
+        return this.getCategory(todo.categoryId).pipe(
+          map((cat) => {
+            todo.category = cat;
+            return todo;
+          })
+        );
+      }),
+      toArray()
+    );
   }
 
   getCategory(categoryId: number): Observable<Category> {
