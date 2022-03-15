@@ -1,10 +1,17 @@
-<form [formGroup]="todoAddForm" (ngSubmit)="onAddTodo()">
-  <mat-form-field style="width: 70%;">
+<form
+  [formGroup]="todoAddForm"
+  (ngSubmit)="onAddTodo()"
+  #formDirective="ngForm"
+>
+  <mat-form-field style="width: 70%">
     <mat-label>New Todo</mat-label>
     <input matInput formControlName="title" value="test" autocomplete="off" />
+    <mat-error *ngIf="todoAddForm.get('title').invalid"
+      >You must enter a title</mat-error
+    >
   </mat-form-field>
 
-  <mat-form-field style="width: 20%;">
+  <mat-form-field style="width: 20%">
     <mat-label>Category</mat-label>
     <input
       type="text"
@@ -12,6 +19,9 @@
       formControlName="category"
       [matAutocomplete]="auto"
     />
+    <mat-error *ngIf="todoAddForm.get('category').invalid"
+      >You must select a category</mat-error
+    >
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
       <mat-option
         *ngFor="let category of filteredCategories | async"

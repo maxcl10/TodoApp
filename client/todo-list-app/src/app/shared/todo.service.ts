@@ -16,7 +16,16 @@ export class TodoService {
 
   addTodo(todo: Todo): Observable<Todo> {
     const url = this.baseUrl + 'todos';
-    return this.httpClient.post<Todo>(url, todo);
+    return this.httpClient.post<Todo>(url, todo).pipe(
+      mergeMap((todo) => {
+        return this.getCategory(todo.categoryId).pipe(
+          map((cat) => {
+            todo.category = cat;
+            return todo;
+          })
+        );
+      })
+    );
   }
 
   saveTodo(todo: Todo): Observable<Todo> {

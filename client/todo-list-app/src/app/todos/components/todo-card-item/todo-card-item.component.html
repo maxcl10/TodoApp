@@ -2,6 +2,7 @@
   [class.done]="todo.doneDate"
   (mouseover)="isHover = true"
   (mouseout)="isHover = false"
+  *ngIf="todo"
 >
   <mat-card-title
     ><mat-checkbox
@@ -15,11 +16,11 @@
       {{ todo.title }}</span
     >
     <a
-      [routerLink]="['./category', todo.category.categoryId]"
+      [routerLink]="['./category', todo.category?.shortName]"
       *ngIf="displayCategory && !todo.doneDate"
       class="badge badge-primary"
     >
-      {{ todo.category.shortName }}
+      {{ todo.category?.shortName }}
     </a>
     <button
       mat-icon-button
@@ -38,7 +39,7 @@
     ></mat-card-subtitle
   >
   <span *ngIf="!todo.doneDate" class="text-secondary"> {{ todo.note }}</span>
-  <div style="position: absolute; right: 10px; top: 20px;">
+  <div style="position: absolute; right: 10px; top: 20px">
     <a
       mat-mini-fab
       [routerLink]="['/todos', todo.todoId]"

@@ -11,13 +11,13 @@ import { SubSink } from 'subsink';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches),
+      map((result) => result.matches),
       shareReplay()
     );
 
@@ -33,18 +33,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
   ngOnInit(): void {
-    this.service.getCategories().subscribe(res => {
+    this.service.getCategories().subscribe((res) => {
       this.categories = res;
     });
 
-    this.subs.sink = this.eventBusService.on(Events.TodoUpdated, todo => {
+    this.subs.sink = this.eventBusService.on(Events.TodoUpdated, (todo) => {
       this.updateCount(todo);
     });
   }
 
   updateCount(todo: Todo) {
     const category = this.categories.filter(
-      o => o.categoryId === todo.categoryId
+      (o) => o.categoryId === todo.categoryId
     )[0];
 
     if (todo.doneDate || todo.deletedDate) {

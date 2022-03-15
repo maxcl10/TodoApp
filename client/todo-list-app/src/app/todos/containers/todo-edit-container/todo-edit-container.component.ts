@@ -3,20 +3,20 @@ import {
   FormGroup,
   FormBuilder,
   FormControl,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TodoService } from 'src/app/shared/todo.service';
 import { Todo } from 'src/app/shared/models/todo.model';
 import { Location } from '@angular/common';
-import { SubSink } from 'node_modules/subsink/dist/';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Category } from 'src/app/shared/models/category.model';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-todo-edit-container',
   templateUrl: './todo-edit-container.component.html',
-  styleUrls: ['./todo-edit-container.component.scss']
+  styleUrls: ['./todo-edit-container.component.scss'],
 })
 export class TodoEditContainerComponent implements OnInit, OnDestroy {
   constructor(
@@ -35,19 +35,19 @@ export class TodoEditContainerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // let id = +this.route.snapshot.paramMap.get('id');
-    this.subs.sink = this.route.params.subscribe(params => {
+    this.subs.sink = this.route.params.subscribe((params) => {
       const id = +params.id; //
 
-      this.subs.sink = this.service.getTodo(id).subscribe(res => {
+      this.subs.sink = this.service.getTodo(id).subscribe((res) => {
         this.editedTodo = res;
         this.todoForm = this.fb.group({
           title: new FormControl(res.title, [Validators.required]),
           note: new FormControl(res.note),
-          categoryId: new FormControl(res.categoryId)
+          categoryId: new FormControl(res.categoryId),
         });
       });
 
-      this.subs.sink = this.service.getCategories().subscribe(res => {
+      this.subs.sink = this.service.getCategories().subscribe((res) => {
         this.categories = res;
       });
     });
@@ -57,7 +57,7 @@ export class TodoEditContainerComponent implements OnInit, OnDestroy {
     this.editedTodo.title = this.todoForm.get('title').value;
     this.editedTodo.note = this.todoForm.get('note').value;
     this.editedTodo.categoryId = this.todoForm.get('categoryId').value;
-    this.subs.sink = this.service.saveTodo(this.editedTodo).subscribe(res => {
+    this.subs.sink = this.service.saveTodo(this.editedTodo).subscribe((res) => {
       this.snackBar.open('Todo saved', null, { duration: 2000 });
       this.router.navigate(['../todos']);
     });
@@ -66,7 +66,7 @@ export class TodoEditContainerComponent implements OnInit, OnDestroy {
   onSave() {
     this.editedTodo.title = this.todoForm.get('title').value;
     this.editedTodo.note = this.todoForm.get('note').value;
-    this.subs.sink = this.service.saveTodo(this.editedTodo).subscribe(res => {
+    this.subs.sink = this.service.saveTodo(this.editedTodo).subscribe((res) => {
       this.snackBar.open('Todo saved', null, { duration: 2000 });
     });
   }

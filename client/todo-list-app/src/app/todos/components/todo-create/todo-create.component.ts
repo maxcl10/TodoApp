@@ -4,19 +4,16 @@ import {
   EventEmitter,
   Output,
   ChangeDetectionStrategy,
+  ViewChild,
 } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { TodoService } from 'src/app/shared/todo.service';
 import { Category } from 'src/app/shared/models/category.model';
 import { Todo } from 'src/app/shared/models/todo.model';
 
 import { map, startWith, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import {
-  EventBusService,
-  EmitEvent,
-  Events,
-} from 'src/app/shared/event-bus.service';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-todo-create',
@@ -25,6 +22,10 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoCreateComponent implements OnInit {
+  private subs = new SubSink();
+
+  @ViewChild('formDirective') private formDirective: NgForm;
+
   constructor(private service: TodoService) {}
 
   @Output()
@@ -40,18 +41,19 @@ export class TodoCreateComponent implements OnInit {
   filteredCategories: Observable<Category[]>;
 
   ngOnInit() {
-    this.service.getCategories().subscribe((arg) => {
+    this.subs.sink = this.service.getCategories().subscribe((arg) => {
       this.categories = arg;
-      this.filteredCategories = this.todoAddForm.valueChanges.pipe(
-        tap((val) => console.log(`BEFORE MAP: ${JSON.stringify(val)}`)),
-        startWith(''),
-        map((value) =>
-          value.category !== undefined && typeof value.category === 'string'
-            ? value.category
-            : value?.category?.name
-        ),
-        map((name) => (name ? this._filter(name) : this.categories.slice()))
-      );
+      this.filteredCategories = this.todoAddForm
+        .get('category')
+        .valueChanges.pipe(
+          startWith(''),
+          map((value) =>
+            value !== undefined && typeof value === 'string'
+              ? value
+              : value.name
+          ),
+          map((name) => (name ? this.filter(name) : this.categories.slice()))
+        );
     });
   }
 
@@ -60,17 +62,20 @@ export class TodoCreateComponent implements OnInit {
   }
 
   onAddTodo() {
-    const todo: Todo = {
-      title: this.todoAddForm.value.title,
-      categoryId: this.todoAddForm.value.category.categoryId,
-    };
+    if (this.todoAddForm.valid) {
+      const todo: Todo = {
+        title: this.todoAddForm.value.title,
+        categoryId: this.todoAddForm.value.category.categoryId,
+      };
+      this.AddTodo.emit(todo);
 
-    this.AddTodo.emit(todo);
-    this.todoAddForm.reset();
+      this.todoAddForm.reset({ title: '', category: '' });
+      // required otherwise form stay not valid has submit is set
+      this.formDirective.resetForm();
+    }
   }
 
-  private _filter(name: string): Category[] {
-    console.log('here');
+  private filter(name: string): Category[] {
     const filterValue = name.toLowerCase();
 
     return this.categories.filter(
