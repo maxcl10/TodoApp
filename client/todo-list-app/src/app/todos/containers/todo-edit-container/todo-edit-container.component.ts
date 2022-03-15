@@ -10,7 +10,7 @@ import { TodoService } from 'src/app/shared/todo.service';
 import { Todo } from 'src/app/shared/models/todo.model';
 import { Location } from '@angular/common';
 import { SubSink } from 'node_modules/subsink/dist/';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Category } from 'src/app/shared/models/category.model';
 
 @Component({

@@ -7,7 +7,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { SubSink } from 'subsink';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   EmitEvent,
   Events,
